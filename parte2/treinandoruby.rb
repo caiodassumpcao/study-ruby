@@ -20,6 +20,13 @@
 # hash.values - retorna um array com os valores
 # hash.empty - verifica se o hash está vazio
 
+# Laços:
+#break - Sair do laço
+#Return - Sair do laõ e do método onde está contido
+#next - Vai imediatamente para a próxima interação 
+#redo - Repete o laço do início (a condição não sera reavaliada)
+
+
 puts "Digite um número:"
 numero = gets.chomp.to_i
 
