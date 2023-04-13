@@ -4,13 +4,13 @@ def countingsort(array)
 
     max_valor = array.max
 
-    index_array = Array.new(max_valor + 1, 0)
+    index_array = Array.new(max_valor + 1, 0) #Array.new = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
-    array.each do |element|
+    array.each do |element|                   #Contando quantas vezes cada elemento aparece no array inicial 
         index_array[element] += 1
     end
 
-    (1..max_valor).each do |i| 
+    (1..max_valor).each do |i|                
         index_array[i] += index_array[i-1] 
     end
 
