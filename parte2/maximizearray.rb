@@ -6,29 +6,22 @@
 #3. Substitua (0) por -(0), a matriz torna-se {2, 0, 5, 1, 2}
 #4. Substitua (0) por -(0), a matriz se torna {2, 0, 5, 1, 2}
 
-#exercicio prático: arr[] = {9, 8, 8, 5}, k = 3
+#exercicio prático: arr[] = {9, 8, 8, 5}, k = 3.
 
-#primeiro vamos ordenar o arr
-
+#primeiro vamos ordenar o array
 def max_soma (array, k)
-    array_ord = array.sort!
-    x = 0 #variavel para identificar se tem numero negativo ou 0 
+    n = k
 
-    for i in (0..k) 
-        if array[i] < 0
-            array[i] = -array[i]
-        elsif array[i] == 0 
-            numero_zero += 1
-        else    
-            x += 1
-        end
+    while n > 0
+        array[array.index(array.min)] *= -1
+        n -= 1
     end
+    
+    return array.sum
+    
+end
 
-    until x = 0 
-        do 
+array = [9, 8, 8, 5]
+k = 3
 
-
-
-
-
-
+puts max_soma(array, k)
