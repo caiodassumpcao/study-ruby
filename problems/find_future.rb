@@ -15,13 +15,13 @@ def find_date(array)
     fim = tamanho - 1
 
     date_array = array.map { |str| Date.strptime(str, "%d/%m/%Y") } #transformar os objetos do array em data
-    date_q = q.map { |str| Date.strptime(str, "%d/%m/%Y") }
+ "%d/%m/%Y") }f
 
     sorted_date_array = date_array.sort
-
+A
     puts sorted_date_array
     
-    while inicio <= fim
+    while inicio <= fimssdaasdasdasdas
         meio = (inicio + fim) / 2
 
         if sorted_date_array[meio] == date_q 
@@ -44,3 +44,4 @@ else
   puts "A data foi encontrada no índice #{indice} #{q}"
 end
 
+dadsad
