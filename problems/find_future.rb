@@ -20,7 +20,8 @@ data_usuario = Date.strptime(input, '%d/%m/%Y')
 
 # Verifica se a data do usuário existe no array de datas
 if datas.include?(data_usuario)
-  puts "A data #{data_usuario.strftime('%d/%m/%Y')} existe na biblioteca."
+  index = datas.index(data_usuario)
+  puts "A data #{data_usuario.strftime('%d/%m/%Y')} existe na biblioteca, na posição #{index}."
 else
   puts "A data #{data_usuario.strftime('%d/%m/%Y')} não existe no biblioteca."
 end
