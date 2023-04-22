@@ -6,42 +6,21 @@
 
 require 'date'
 
-array = ["22/4/1233", "1/3/633", "23/5/56645", "4/12/233"]
-q = ["12/3/2", "23/3/4345", "1/3/633"]
+# Array de datas
+date = ['22/4/1233', '1/3/633', '23/5/56645', '4/12/233']
 
-def find_date(array)
-    inicio = 0 
-    tamanho = array.length
-    fim = tamanho - 1
+datas = date.map { |data_str| Date.strptime(data_str, '%d/%m/%Y')}
 
-    date_array = array.map { |str| Date.strptime(str, "%d/%m/%Y") } #transformar os objetos do array em data
- "%d/%m/%Y") }f
+# Obtém a entrada do usuário
+puts "Digite uma data (formato: dd/mm/yyyy):"
+input = gets.chomp
 
-    sorted_date_array = date_array.sort
-A
-    puts sorted_date_array
-    
-    while inicio <= fimssdaasdasdasdas
-        meio = (inicio + fim) / 2
+# Converte a entrada do usuário em um objeto de data
+data_usuario = Date.strptime(input, '%d/%m/%Y')
 
-        if sorted_date_array[meio] == date_q 
-            return meio 
-        elsif sorted_date_array [meio] < date_q
-            inicio = meio + 1
-        else 
-            fim = meio - 1
-        end
-    end
-    return -1
-
-end 
-
-indice = find_date(array) + 1
-
-if indice == -1
-  puts "A data não foi encontrada"
+# Verifica se a data do usuário existe no array de datas
+if datas.include?(data_usuario)
+  puts "A data #{data_usuario.strftime('%d/%m/%Y')} existe na biblioteca."
 else
-  puts "A data foi encontrada no índice #{indice} #{q}"
+  puts "A data #{data_usuario.strftime('%d/%m/%Y')} não existe no biblioteca."
 end
-
-dadsad
