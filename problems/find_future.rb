@@ -25,3 +25,4 @@ if datas.include?(data_usuario)
 else
   puts "A data #{data_usuario.strftime('%d/%m/%Y')} não existe no biblioteca."
 end
+
