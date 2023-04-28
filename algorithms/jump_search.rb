@@ -17,41 +17,47 @@
 
 puts "Digite um número"
 x = gets.chomp.to_i
-m = 4
 array = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]
+n = array.length - 1 
 
-def jump_search(array, x)
+def jump_search(array, x, n)
     inicio = 0
-    n = array.length
-    
-    while fim <= inicio
+    m = 0 #variavel de pulo
+    k = 4 #variavel que adiciona o pulo 4, a variavel m
 
-        if array[meio] == x #se x for numero do meio 
-            index = meio
-            return meio #retorna indice do numero encontrado
-        elsif array[meio] < x 
-            inicio = meio
-        else array[meio] > x
-            inicio = inicio - meio
-            encontrado = false 
-            
-            for i in inicio..n #busca linar 
-                if array[i] == x 
+    while inicio <= n
+
+        if array[m] == x #se x for numero do meio 
+            index = m
+            return index #retorna indice do numero encontrado
+        elsif array[m] < x 
+            inicio = m
+            m += k
+        else array[m] > x
+            inicio = m - k
+            m -= k
+
+            for i in m..n
+                if array[i] == x
                     index = i
-                    return i 
+                    return index 
                 end 
-                return -1 # retorna -1 caso o alvo não seja encontrado no array
-            end
+            end 
+            return -1 
         end
+
+        inicio += k
     end 
+    
     return -1 
 end 
 
-resultado = jump_search(array, x)
-if resultado = -1 
+resultado = jump_search(array, x, n)
+
+if resultado == -1 
     puts "número não encontrado" 
 else 
-    puts "O número #{x} foi encontrado no índice #{index}"
+    puts "O número #{x} foi encontrado no índice #{resultado}"
 end
 
 

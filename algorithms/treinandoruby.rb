@@ -33,7 +33,7 @@ numero = gets.chomp.to_i
 array = [3, 6, 9, 12, 15, 18]
 
 encontrado = false
-indice = -1
+indice = -1 
 
 array.each_with_index do |elemento, i|
   if elemento == numero
