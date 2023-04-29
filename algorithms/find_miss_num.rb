@@ -8,13 +8,32 @@
 
 # 1° Criar matriz temporaria de tamanho n + 1 com todos valores iniciais como 0: temp[]
 # 2° Atravessar a matriz de entrada(array[]) para cada array[i]
-#       if(temp[array[i]]) == 0 temp[array[i]] = 1
+#       if(temp[array[i]]) == 0 e temp[array[i]] = 1
 #3° Atravessar temp[] e imprimir o elemento da matriz com valor 0(valor faltando)
 
-array = [1, 2, 3, 5]
-n = 5
+
 
 def find_miss_num(array)
 
     temp = Array.new(n + 1, 0) # temp = [0, 0, 0, 0, 0, 0]
-    for i in
+   
+    for i in 0...n # 2° etapa 
+        temp[array[i] - 1] = 1
+    end
+
+    x = nil #declara uma varavel como vazio
+    
+    for i in 0..n 
+        if temp[array[i]] == 0
+        x = 1 + 1 # Atribui o valor da posição não marcada em temp + 1 à variável
+        break
+        end
+    end
+
+    puts x 
+end 
+
+array = [1, 2, 3, 5]
+n = array.size 
+find_miss_num(array, n)
+
