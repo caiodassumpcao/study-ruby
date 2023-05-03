@@ -13,13 +13,32 @@ def swap(array, a, b) #função de troca valor de A e B dentro do array
     array[b] = t
 end 
 
-def quicksort(array)
-    pivot = array[-1] #Selecionando o pivor como ultimo numero do array
-    n = array.length - 2
-    x = -1
-    for i in 0..n 
-        if array[i] > pivot
-            swap(array, i, x)
+def partition(array, low, high)
+    pivot = array[high] #Selecionando o pivor como ultimo numero do array
+    i = low - 1
+    for j in low..high-1
+        if array[j] < pivot
+            i += 1
+            swap(array, i, j)
         end 
     end 
-    dsad 
+    swap(array, i+1, high)    
+    return i+1
+end 
+
+def quicksort(array, low=0, high=nil)
+    if high == nil
+        high = array.length - 1 #defini a high como variavel
+    end 
+    
+    if low < high 
+        pivot_index = partition(array, low, high)
+        quicksort(array, low, pivot_index - 1)
+        quicksort(array, pivot_index + 1, high)
+    end 
+    return array 
+end 
+
+array = [1, 5, 7, 8, 9, 10]
+
+puts quicksort(array)
