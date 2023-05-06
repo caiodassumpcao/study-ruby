@@ -4,11 +4,7 @@
 # Cada trabalho contem prazo e lucro se o trabalho for concluído antes do prazo
 # Cada trabalho leva uma und de tempo. Logo o prazo minimo para cada trabalho = 1
 # Maximize o lucro total se apenas um trabalho puder ser agendado por vez
-
-a = [4, 20]
-b = [1, 10]
-c = [1, 40]
-d = [1, 30]
+require 'pry'
 
 class Job 
     attr_accessor :id, :dead, :profit
@@ -17,6 +13,11 @@ class Job
         @id = id
         @dead = dead
         @profit = profit
+    end 
+ 
+
+    def to_s
+        "#{@id}-#{@dead}-#{@profit}"
     end 
 end 
 
