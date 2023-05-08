@@ -29,24 +29,25 @@ end
 def compare(a, b)
     razao_a = a.profit / a.weight
     razao_b = b.profit / b.weight
-    razao_b = razao_a #comparando resultados
+    razao_b <=> razao_a #comparando resultados
 end 
 
-def razao(array, n)
+def razao(array, n, max_weight)
     
     array.sort! { |a, b| compare(a, b) } 
 
     res = 0
-    w = 50
+    w = max_weight
 
-    for i in 0..n do
+    for i in 0..n-1 do
         if array[i].weight < w 
             w -= array[i].weight
             res += array[i].profit
         else 
-            fracao_w = w / array[i].weight # porcentagem
+            fracao_w = w.to_f / array[i].weight # porcentagem
             res += fracao_w * array[i].profit #lucro em %
-            w -= fracao_w * array[i].weight #Peso em % (oque faltava)
+            w = 0 
+            break 
         end 
     end
     return res 
