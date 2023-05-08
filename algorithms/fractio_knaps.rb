@@ -1,65 +1,48 @@
-#Fractional Knapsack Problem - Problema da Mochila Fracionária  
-
-# Obter o maior lucro total na mochila
-# N itens de forma {lucro, peso}
-# W = Capacidade da mochila
-
 require 'pry'
 
 class Item 
-    attr_accessor :weight, :profit
+  attr_accessor :weight, :profit
 
-    def initialize(weight, profit)
-        @weight = weight
-        @profit = profit
+  def initialize(weight, profit)
+    @weight = weight
+    @profit = profit
+  end 
 
-    end 
- 
-
-    def to_s
-        "#{@weight}-#{@profit}"
-    end 
-
-end 
-
-def max(num1, num2) 
-    num1 > num2 ? num2 : num1 #Operador ternário (? x : y) - Retorna o menor entre os 2 comparados(x e y)
+  def to_s
+    "#{@weight}-#{@profit}"
+  end 
 end 
 
 def compare(a, b)
-    razao_a = a.profit / a.weight
-    razao_b = b.profit / b.weight
-    razao_b <=> razao_a #comparando resultados
+  b.profit.to_f / b.weight <=> a.profit.to_f / a.weight
 end 
 
-def razao(array, n, max_weight)
-    
-    array.sort! { |a, b| compare(a, b) } 
+def razao(array, max_weight)
+  array.sort! { |a, b| compare(a, b) } 
 
-    res = 0
-    w = max_weight
+  total_profit = 0
+  remaining_weight = max_weight
 
-    for i in 0..n-1 do
-        if array[i].weight < w 
-            w -= array[i].weight
-            res += array[i].profit
-        else 
-            fracao_w = w.to_f / array[i].weight # porcentagem
-            res += fracao_w * array[i].profit #lucro em %
-            w = 0 
-            break 
-        end 
+  array.each do |item|
+    if remaining_weight >= item.weight
+      total_profit += item.profit
+      remaining_weight -= item.weight
+    else
+      fraction = remaining_weight.to_f / item.weight
+      total_profit += fraction * item.profit
+      break
     end
-    return res 
+  end
+
+  return total_profit 
 end 
 
 array = [
-    Item.new(2, 100), 
-    Item.new(1, 19), 
-    Item.new(2, 27), 
+  Item.new(20, 100), 
+  Item.new(10, 60), 
+  Item.new(30, 120), 
 ]
 
-n = array.length 
+max_weight = 50
 puts "Lucro máximo obtido:"
-razao(array, n)
-
+puts razao(array, max_weight) 
