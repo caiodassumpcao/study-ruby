@@ -17,7 +17,7 @@ end
 
 day = 11
 month = 3
-year = 20
+year = 2023
 
 
 puts day_of_week(year, month, day)
